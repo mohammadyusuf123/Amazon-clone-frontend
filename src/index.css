@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+    .btn {
+      @apply mt-3 bg-yellow-400 rounded px-7 py-2  text-gray-600 text-xs xl:text-sm hover:bg-yellow-500;
+    }
+  }
+  
