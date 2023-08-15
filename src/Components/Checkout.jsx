@@ -2,7 +2,8 @@ import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 import ProductsDetails from "./ProductsDetails"
 import { GB_CURRENCY } from "./utils/constant"
-import { removeFromCart } from "../Redux/cartSlice"
+import { decrementInCart, incrementInCart, removeFromCart } from "../Redux/cartSlice"
+
 
 
 const Checkout = () => {
@@ -10,6 +11,8 @@ const Checkout = () => {
   const productNumber=useSelector((state=>state.cart.productNumber))
   const subTotal=useSelector((state)=>state.cart.products.reduce((subTotal,product)=>subTotal+(product.price*product.quantity),0));
   const dispatch=useDispatch()
+
+  
   return (
     <div className="h-screen bg-amazonclone-background ">
       <div className="max-h-[1000px] max-w[1500px]  m-auto pt-5 ">
@@ -35,9 +38,9 @@ const Checkout = () => {
                      </div>
                      
                      <div className=" grid grid-cols-3 pt-2 w-20 text-center ">
-                      <div className=" text-xl xl:text-2xl bg-slate-500 rounded text-white">+</div>
+                      <div className=" text-xl xl:text-2xl bg-slate-500 rounded cursor-pointer text-white"><span onClick={()=>dispatch(incrementInCart(product.id))}>+</span></div>
                       <div className="text-xs xl:text-xl">{product.quantity}</div>
-                      <div className="text-xl xl:text-2xl bg-slate-500 rounded text-white">-</div>
+                      <div className="text-xl xl:text-2xl bg-slate-500 rounded cursor-pointer text-white"><span onClick={()=>dispatch(decrementInCart(product.id))}>-</span></div>
                      </div>
                      <div className="">
                       <button onClick={()=>dispatch(removeFromCart(product.id))} className=" text-base xl:text-l  text-blue-500">Delate</button>
