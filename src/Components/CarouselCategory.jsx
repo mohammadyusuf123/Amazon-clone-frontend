@@ -45,6 +45,7 @@ slidesPerView={5}
     <SwiperSlide className='cursor-pointer'  onClick={()=>searchCategory("Mobiles")}><img src={img6}/></SwiperSlide>
     
   </Swiper>
+   
     </div>
   )
 }

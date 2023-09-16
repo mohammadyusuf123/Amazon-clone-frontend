@@ -12,13 +12,14 @@ import img9 from '../assets//images/banner_image_2.jpg'
 import img10 from '../assets//images/banner_image.jpg'
 import CarouselCategory from "./carouselCategory";
 import CarouselProduct from "./CarouselProduct";
+import Footer from "./Footer";
 
 
 
 function Home() {
   return (
     <div className="bg-amazonclone-background">
-    <div className="max-w-[1500px] min-w-[1000px]">
+    <div className="max-w-[2000px] min-w-[1000px]">
      <Carousel/>
      <div className="grid grid-cols-3   xl:grid-cols-4  -mt-80">
          <HomePageCard 
@@ -59,10 +60,12 @@ function Home() {
      </div>
      <CarouselProduct/>
      <CarouselCategory/>
-     <div className="h-[200px]">
+     <div className="">
          <img className="w-[100%] m-auto" src={img10}/>
      </div>
+    
     </div>
+    <Footer/>
    </div>
   )
 }
